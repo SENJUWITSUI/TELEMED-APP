@@ -6,25 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class secondpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_secondpage);
 
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button backbtn = (Button) findViewById(R.id.backbtn);
+        backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, secondpage.class));
+                startActivity(new Intent(secondpage.this, MainActivity.class));
                 //Intent intent = new Intent(MainActivity.this,sarcondpage.class);
-                Toast.makeText(getApplicationContext(), "You Click Me :)) ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Bye bye :)) ", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
