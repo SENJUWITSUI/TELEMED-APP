@@ -12,9 +12,6 @@
         android:theme="@style/Theme.TELEMED"
         tools:targetApi="31">
         <activity
-            android:name=".header1"
-            android:exported="false" />
-        <activity
             android:name=".User_Interface"
             android:exported="false" />
         <activity
