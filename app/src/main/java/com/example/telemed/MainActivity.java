@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ScrollView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -44,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
 
                 rcvCategory = findViewById(R.id.rcv_category);
                 rcvUser = findViewById(R.id.rcv_user);
@@ -112,3 +117,4 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+
