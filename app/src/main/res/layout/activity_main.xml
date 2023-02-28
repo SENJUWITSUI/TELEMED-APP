@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/sky_blue"
+    android:id="@+id/scroll"
     tools:context=".MainActivity">
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/appbar"
+            android:fitsSystemWindows="true"
+            android:theme="@style/Theme.Design"
+            android:background="#fff" >
+
+
+            <ImageView
+                android:layout_width="183dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="-7dp"
+                android:layout_marginBottom="19dp"
+                android:src="@drawable/telemed_logo"
+                app:layout_anchor="@+id/appbar"
+                app:layout_collapseMode="parallax" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <include layout="@layout/header"/>
 
@@ -108,6 +131,19 @@
             android:layout_height="match_parent"
             android:paddingBottom="10dp"/>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/confirmpassw"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="54dp"
+            android:layout_marginEnd="28dp"
+            android:backgroundTint="#0C5FB9"
+            android:clickable="true"
+            android:src="@drawable/baseline_arrow_upward_24"
+            app:fabCustomSize="50dp" />
 
     </LinearLayout>
 

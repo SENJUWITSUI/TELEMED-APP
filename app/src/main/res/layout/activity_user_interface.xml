@@ -15,7 +15,7 @@
 
         <include
             android:id="@+id/include"
-            layout="@layout/activity_header1"
+            layout="@layout/activity_header"
             tools:layout_editor_absoluteX="-49dp"
             tools:layout_editor_absoluteY="175dp" />
 
