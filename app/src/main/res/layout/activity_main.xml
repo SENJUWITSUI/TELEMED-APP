@@ -35,7 +35,7 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <include layout="@layout/header"/>
+        <include layout="@layout/header" />
 
         <Button
             android:layout_width="300dp"
