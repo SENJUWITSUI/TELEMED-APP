@@ -10,31 +10,11 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/appbar"
-            android:fitsSystemWindows="true"
-            android:theme="@style/Theme.Design"
-            android:background="#fff" >
-
-
-            <ImageView
-                android:layout_width="183dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="-7dp"
-                android:layout_marginBottom="19dp"
-                android:src="@drawable/telemed_logo"
-                app:layout_anchor="@+id/appbar"
-                app:layout_collapseMode="parallax" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
+        
         <include layout="@layout/header" />
 
         <Button
