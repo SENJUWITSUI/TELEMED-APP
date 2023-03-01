@@ -1,19 +1,25 @@
 package com.example.telemed;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class header extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-     Spinner spinner;
+    Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_header);
+
         spinner = findViewById(R.id.spinner);
 
         String[] data = {"Option 1", "Option 2", "Option 3"};
@@ -36,3 +42,5 @@ public class header extends AppCompatActivity implements AdapterView.OnItemSelec
 
     }
 }
+
+
