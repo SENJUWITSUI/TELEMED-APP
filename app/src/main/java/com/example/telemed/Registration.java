@@ -33,7 +33,7 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_registration);
         //show , hide password
         ImageView imageViewshowHidepass = findViewById(R.id.imgshow);
         imageViewshowHidepass.setImageResource(R.drawable.off);
