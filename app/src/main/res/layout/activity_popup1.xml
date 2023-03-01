@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="600dp"
+    android:layout_gravity="center"
+    android:background="@drawable/cerclebackground">
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/h"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/ano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ano ito?"
+        android:textSize="30dp"
+        android:textColor="#003473"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/pic"/>
+
+    <TextView
+        android:id="@+id/serbisyo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mga Serbisyo"
+        android:textSize="30dp"
+        android:textColor="#003473"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/ano"/>
+
+    <TextView
+        android:id="@+id/ospital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mga Ospital"
+        android:textSize="30dp"
+        android:textColor="#003473"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/serbisyo"/>
+
+    <TextView
+        android:id="@+id/ugnay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Makipag-ugnayan"
+        android:textSize="30dp"
+        android:textColor="#003473"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/ospital"/>
+
+    <Button
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ugnay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#003473"
+        android:text="Register" />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#003473"
+        android:text="LOGIN" />
+
+
+</RelativeLayout>
