@@ -8,8 +8,8 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <include layout="@layout/header"/>
 
+    <include layout="@layout/header" />
 
     <androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
