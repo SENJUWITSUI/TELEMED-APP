@@ -131,7 +131,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pass" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/loginbtn"
         android:layout_width="150dp"
         android:layout_height="60dp"
@@ -142,7 +142,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#003473"
-        android:text="LOGIN" />
+        android:text="LOGIN"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/create"

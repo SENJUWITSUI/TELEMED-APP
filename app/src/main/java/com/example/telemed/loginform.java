@@ -29,7 +29,7 @@ public class loginform extends AppCompatActivity {
     }
     public void openGalleryActivity(){
 
-        Intent intent = new Intent(this, Login.class);
+        Intent intent = new Intent(this,Login.class);
         startActivity(intent);
 
     }

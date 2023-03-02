@@ -31,7 +31,11 @@
             android:exported="false" />
         <activity
             android:name=".Calendar"
-            android:exported="false" />
+            android:exported="false"/>
+        <activity 
+            android:name=".Login"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
