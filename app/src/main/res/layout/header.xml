@@ -31,7 +31,6 @@
                 android:layout_height="35dp"
                 android:gravity="center"
                 android:background="@drawable/button1"
-                android:scaleType="centerCrop"
                 android:layout_marginTop="5dp"
                 android:text="Register"
                 android:textAllCaps="false"
