@@ -69,11 +69,12 @@
         android:layout_below="@id/ugnay"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="31dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="1dp"
         android:backgroundTint="#003473"
-        android:text="Register" />
+        android:text="Register"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/loginbtn"
@@ -86,7 +87,8 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="1dp"
         android:backgroundTint="#003473"
-        android:text="LOGIN" />
+        android:text="LOGIN"
+        android:textColor="@color/white"/>
 
 
 </RelativeLayout>
