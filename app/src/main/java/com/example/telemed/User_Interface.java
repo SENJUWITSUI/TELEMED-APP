@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class User_Interface extends AppCompatActivity {
+public class User_Interface extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
@@ -22,6 +25,9 @@ public class User_Interface extends AppCompatActivity {
     private Button button;
     TextView txt;
     Dialog dialog;
+
+    Spinner spinner;
+    String[] data = {"Option 1", "Option 2", "Option 3"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +105,24 @@ public class User_Interface extends AppCompatActivity {
 
             }
         });
+
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(User_Interface.this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String selectedOption = adapterView.getItemAtPosition(i).toString();
+
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 

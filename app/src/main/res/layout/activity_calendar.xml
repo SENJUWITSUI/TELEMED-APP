@@ -37,85 +37,86 @@
         app:layout_constraintStart_toStartOf="@+id/cd1"
         app:layout_constraintTop_toTopOf="@+id/cd1">
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="55dp"-->
-<!--            android:layout_marginTop="20dp"-->
-<!--            android:layout_marginBottom="20dp"-->
-<!--            android:orientation="horizontal">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginStart="35dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text="<"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:padding="10dp"
+                android:drawableStart="@drawable/less"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginStart="-1dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text=">"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="-1dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:padding="10dp"
+                android:drawableStart="@drawable/greater"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text="Today"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:text="Today"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text="Month"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:text="Month"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginStart="-1dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text="Week"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="-1dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:text="Week"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--            <Button-->
-<!--                android:layout_width="48dp"-->
-<!--                android:layout_height="38dp"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:background="#003473"-->
-<!--                android:text="Day"-->
-<!--                android:textAlignment="center"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="11sp"-->
-<!--                tools:ignore="TouchTargetSizeCheck" />-->
+            <Button
+                android:layout_width="48dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:background="#003473"
+                android:text="Day"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
-<!--        </LinearLayout>-->
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -156,10 +157,11 @@
             android:layout_marginEnd="30dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/button"
-
+            android:drawableStart="@drawable/search"
+            android:paddingHorizontal="15dp"
             android:fontFamily="sans-serif"
             android:onClick="show_Dialog"
-            android:text="🔍 PUMILI MULI"
+            android:text="PUMILI MULI"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
