@@ -13,7 +13,7 @@ public class Login extends AppCompatActivity {
     Dialog myDialog;
     TextView create;
 
-   private Button register;
+
 
 
     @Override
@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         popupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(Login.this,Popup1.class);
+               Intent intent = new Intent(Login.this,Dialog.class);
                startActivity(intent);
 
             }

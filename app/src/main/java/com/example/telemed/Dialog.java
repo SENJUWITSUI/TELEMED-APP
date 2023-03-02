@@ -7,22 +7,22 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Popup1 extends AppCompatActivity {
+public class Dialog extends AppCompatActivity {
 
-    private Button register;
+     Button register;
 
-    private Button loginbtn;
+    Button loginbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_popup1);
+        setContentView(R.layout.activity_dialog);
 
         register = findViewById(R.id.register);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Popup1.this,Signup.class);
+                Intent intent = new Intent(Dialog.this,Signup.class);
                 startActivity(intent);
             }
         });
@@ -31,7 +31,7 @@ public class Popup1 extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Popup1.this, Login.class);
+                Intent intent = new Intent(Dialog.this, Login.class);
                 startActivity(intent);
             }
         });
