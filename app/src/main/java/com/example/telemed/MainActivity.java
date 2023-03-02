@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private HakbangAdapter hakbangAdapter;
     private UserAdapter userAdapter;
     private OspitalAdapter ospitalAdapter;
-    private Button clickme,reg;
+    private Button clickme,reg,log;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        log = (Button) findViewById(R.id.login_btn);
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openloginActivity();
+
+            }
+        });
+
 
         rcvCategory = findViewById(R.id.rcv_category);
         rcvUser = findViewById(R.id.rcv_user);
@@ -117,6 +127,13 @@ public class MainActivity extends AppCompatActivity {
     public void openregActivity(){
 
         Intent intent = new Intent(this, Registration.class);
+        startActivity(intent);
+
+    }
+
+    public void openloginActivity(){
+
+        Intent intent = new Intent(this, Login.class);
         startActivity(intent);
 
     }

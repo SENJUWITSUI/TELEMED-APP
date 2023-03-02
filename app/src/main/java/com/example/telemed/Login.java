@@ -27,8 +27,8 @@ public class Login extends AppCompatActivity {
         popupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(Login.this,Dialog.class);
-               startActivity(intent);
+                myDialog.setContentView(R.layout.activity_dialog);
+                myDialog.show();
 
             }
         });
@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this, Signup.class);
+                Intent intent = new Intent(Login.this, Registration.class);
                 startActivity(intent);
                 finish();
 
