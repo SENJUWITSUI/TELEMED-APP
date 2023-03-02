@@ -88,6 +88,8 @@
                         android:text="ACTIONS"
                         android:textStyle="bold" />
 
+                    <include layout="@layout/actionbutton_hospital"></include>
+
                 </TableRow>
 
             </TableLayout>
