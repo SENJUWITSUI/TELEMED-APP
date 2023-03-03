@@ -12,15 +12,22 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Login extends AppCompatActivity {
     Dialog myDialog;
     TextView create;
-
-
-
+    private Button login_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        login_btn = (Button) findViewById(R.id.loginbtn);
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGalleryActivity();
+
+            }
+        });
 
         myDialog = new Dialog(this);
         Button popupBTN = (Button) findViewById(R.id.popupBTN);
@@ -30,7 +37,6 @@ public class Login extends AppCompatActivity {
                 myDialog.setContentView(R.layout.activity_dialog);
                 Button myDialogButton = myDialog.findViewById(R.id.register);
                 Button myDialog1Button = myDialog.findViewById(R.id.loginbtn);
-
 
                 myDialogButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -56,7 +62,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
         create = findViewById(R.id.create);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +70,14 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-
             }
         });
 
+    }
+
+    private void openGalleryActivity() {
+        Intent intent = new Intent(this,User_Interface.class);
+        startActivity(intent);
     }
 }
 
