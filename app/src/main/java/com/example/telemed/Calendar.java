@@ -5,16 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Calendar extends AppCompatActivity {
+public class Calendar extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private Button button;
     TextView txt;
     Dialog dialog;
-
+    Spinner spinner;
+    String[] data = {"Option 1", "Change Password", "LogOut"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,23 @@ public class Calendar extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+
+        spinner = findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(Calendar.this, android.R.layout.simple_spinner_item, data);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        Spinner spinner = findViewById(R.id.spinner);
+        spinner.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String selectedOption = adapterView.getItemAtPosition(i).toString();
+
+    }
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
 
