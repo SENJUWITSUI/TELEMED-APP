@@ -46,6 +46,7 @@
 
 
             <Button
+                android:onClick="previousMonthAction"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="35dp"
@@ -58,6 +59,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <Button
+                android:onClick="nextMonthAction"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="-1dp"
@@ -71,6 +73,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <Button
+                android:id="@+id/todaybtn"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="10dp"
@@ -82,6 +85,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <Button
+                android:id="@+id/monthbtn"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="10dp"
@@ -94,6 +98,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <Button
+                android:id="@+id/weekbtn"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="-1dp"
@@ -106,6 +111,7 @@
                 tools:ignore="TouchTargetSizeCheck" />
 
             <Button
+                android:id="@+id/daybtn"
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="10dp"
@@ -118,15 +124,121 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/calendar_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_marginTop="75dp">
 
-            <CalendarView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/monthYearTV"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="Feb 2021"
+                    android:textSize="20sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SUN"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MON"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TUE"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="WED"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="THU"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="FRID"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SAT"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/calendarRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="60dp"/>
+
+<!--            <CalendarView-->
+<!--                android:id="@+id/calendarView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/selected_date_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:padding="16dp"/>-->
+
+        </FrameLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -164,13 +276,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="220dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="18dp"
             android:background="@drawable/button"
             android:drawableStart="@drawable/search"
-            android:paddingHorizontal="15dp"
             android:fontFamily="sans-serif"
             android:onClick="show_Dialog"
+            android:paddingStart="10dp"
             android:text="PUMILI MULI"
             android:textColor="@color/white"
             android:textSize="14sp" />
