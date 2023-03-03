@@ -50,9 +50,9 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="10dp"
-                android:background="#003473"
-                android:text="ppp"
-                android:textAlignment="center"
+                android:background="@drawable/corner_left"
+                android:padding="10dp"
+                android:drawableStart="@drawable/less"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 tools:ignore="TouchTargetSizeCheck" />
@@ -63,7 +63,8 @@
                 android:layout_marginStart="-1dp"
                 android:layout_marginTop="10dp"
                 android:background="#003473"
-                android:text=">"
+                android:padding="10dp"
+                android:drawableStart="@drawable/greater"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="11sp"
@@ -73,7 +74,7 @@
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="10dp"
-                android:background="#003473"
+                android:background="@drawable/corner_right"
                 android:text="Today"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -85,7 +86,7 @@
                 android:layout_height="38dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:background="#003473"
+                android:background="@drawable/corner_left"
                 android:text="Month"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -108,13 +109,23 @@
                 android:layout_width="48dp"
                 android:layout_height="38dp"
                 android:layout_marginTop="10dp"
-                android:background="#003473"
+                android:background="@drawable/corner_right"
                 android:text="Day"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp">
+
+            <CalendarView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

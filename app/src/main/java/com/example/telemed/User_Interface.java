@@ -27,7 +27,7 @@ public class User_Interface extends AppCompatActivity implements AdapterView.OnI
     Dialog dialog;
 
     Spinner spinner;
-    String[] data = {"Option 1", "Option 2", "Option 3"};
+    String[] data = {"Option 1", "Change Password", "LogOut"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
