@@ -5,29 +5,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
     Dialog myDialog;
     TextView create;
-    Button loginbtn;
+    private Button login_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        
-        loginbtn=(Button) findViewById(R.id.loginbtn);
-        loginbtn.setOnClickListener(new View.OnClickListener() {
+        login_btn = (Button) findViewById(R.id.loginbtn);
+
+        login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login.this, User_Interface.class));
-                //  Toast.makeText(getApplicationContext(), "You Click Me :)) ", Toast.LENGTH_SHORT).show();
+                openGalleryActivity();
+
             }
         });
 
@@ -76,6 +74,10 @@ public class Login extends AppCompatActivity {
         });
 
     }
-    }
 
+    private void openGalleryActivity() {
+        Intent intent = new Intent(this,User_Interface.class);
+        startActivity(intent);
+    }
+}
 
