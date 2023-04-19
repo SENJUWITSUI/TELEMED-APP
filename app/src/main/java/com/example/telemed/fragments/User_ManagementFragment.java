@@ -12,10 +12,10 @@ import com.example.telemed.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link User_Management#newInstance} factory method to
+ * Use the {@link User_ManagementFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class User_Management extends Fragment {
+public class User_ManagementFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class User_Management extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public User_Management() {
+    public User_ManagementFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class User_Management extends Fragment {
      * @return A new instance of fragment User_Management.
      */
     // TODO: Rename and change types and number of parameters
-    public static User_Management newInstance(String param1, String param2) {
-        User_Management fragment = new User_Management();
+    public static User_ManagementFragment newInstance(String param1, String param2) {
+        User_ManagementFragment fragment = new User_ManagementFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.telemed.R;
-public class Add_User extends Fragment {
+public class Add_UserFragment extends Fragment {
 
-    public Add_User() {
+    public Add_UserFragment() {
 
     }
 

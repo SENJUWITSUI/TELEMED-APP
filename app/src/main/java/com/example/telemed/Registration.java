@@ -59,11 +59,6 @@ public class Registration extends AppCompatActivity {
         pswrd = findViewById(R.id.password);
         cnfrmpswrn = findViewById(R.id.confirmpassw);
 
-
-
-
-
-
         //show , hide password
         ImageView imageViewshowHidepass = findViewById(R.id.imgshow);
         imageViewshowHidepass.setImageResource(R.drawable.off);
@@ -297,84 +292,83 @@ public class Registration extends AppCompatActivity {
         });
     }
 
-
-
-    private void postData(String fname, String mname, String lname, String sname, String bday, String contactnum, String male, String female, String username, String password, String confirmpassw) {
-
-        // below line is for displaying our progress bar.
-//        loadingPB.setVisibility(View.VISIBLE);
-
-        // on below line we are creating a retrofit
-        // builder and passing our base url
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://192.168.82.157.8080/api/")
-                // as we are sending data in json format so
-                // we have to add Gson converter factory
-                .addConverterFactory(GsonConverterFactory.create())
-                // at last we are building our retrofit builder.
-                .build();
-        // below line is to create an instance for our retrofit api class.
-        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
-
-        // passing data from our text fields to our modal class.
-        DataModal modal = new DataModal(fname, mname, lname, sname, bday, contactnum, male, female, username, password, confirmpassw);
-
-        // calling a method to create a post and passing our modal class.
-        Call<DataModal> call = retrofitAPI.createPost(modal);
-
-        // on below line we are executing our method.
-        call.enqueue(new Callback<DataModal>() {
-            @Override
-            public void onResponse(Call<DataModal> call, Response<DataModal> response) {
-                // this method is called when we get response from our api.
-                Toast.makeText(Registration.this, "Data added to API", Toast.LENGTH_SHORT).show();
-
-                // below line is for hiding our progress bar.
-//                loadingPB.setVisibility(View.GONE);
-
-                // on below line we are setting empty text
-                // to our both edit text.
-
-                firstnme.setText("");
-                mddlenme.setText("");
-                lstnme.setText("");
-                suffnme.setText("");
-                b_day.setText("");
-                cntctnmbr.setText("");
-                mle.setText("");
-                fmle.setText("");
-                usrnme.setText("");
-                pswrd.setText("");
-                cnfrmpswrn.setText("");
-
-                // we are getting response from our body
-                // and passing it to our modal class.
-                DataModal responseFromAPI = response.body();
-
-                // on below line we are getting our data from modal class and adding it to our string.
-                String responseString = "Response Code : " + response.code() + "\nFirst Name : " + responseFromAPI.getFname() + "\n" + "Middle Name : " + responseFromAPI.getMname() + "\n" + "Last Name : " + responseFromAPI.getLname()+ "\n" + "Suffix Name : " + responseFromAPI.getSname() + "\n" + "Birthday : " + responseFromAPI.getBday()+ "\n" + "Contact Number : " + responseFromAPI.getContactnum() + "\n" + "Gender : " + responseFromAPI.getMale()+ "\n" + responseFromAPI.getFemale() + "\n" + "User Name : " + responseFromAPI.getUsername()+ "\n" + "Password: " + responseFromAPI.getPassword() + "\n" + "Confirm Password : " + responseFromAPI.getConfirmpassw();
-
-                // below line we are setting our
-                // string to our text view.
-//                responseTV.setText(responseString);
-            }
-
-            @Override
-            public void onFailure(Call<DataModal> call, Throwable t) {
-
-            }
-
+//
+//
+//    private void postData(String fname, String mname, String lname, String sname, String bday, String contactnum, String male, String female, String username, String password, String confirmpassw) {
+//
+//        // below line is for displaying our progress bar.
+////        loadingPB.setVisibility(View.VISIBLE);
+//
+//        // on below line we are creating a retrofit
+//        // builder and passing our base url
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl("https://192.168.82.157.8080/api/")
+//                // as we are sending data in json format so
+//                // we have to add Gson converter factory
+//                .addConverterFactory(GsonConverterFactory.create())
+//                // at last we are building our retrofit builder.
+//                .build();
+//        // below line is to create an instance for our retrofit api class.
+//        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+//
+//        // passing data from our text fields to our modal class.
+//        DataModal modal = new DataModal(fname, mname, lname, sname, bday, contactnum, male, female, username, password, confirmpassw);
+//
+//        // calling a method to create a post and passing our modal class.
+//        Call<DataModal> call = retrofitAPI.createPost(modal);
+//
+//        // on below line we are executing our method.
+//        call.enqueue(new Callback<DataModal>() {
+//            @Override
+//            public void onResponse(Call<DataModal> call, Response<DataModal> response) {
+//                // this method is called when we get response from our api.
+//                Toast.makeText(Registration.this, "Data added to API", Toast.LENGTH_SHORT).show();
+//
+//                // below line is for hiding our progress bar.
+////                loadingPB.setVisibility(View.GONE);
+//
+//                // on below line we are setting empty text
+//                // to our both edit text.
+//
+//                firstnme.setText("");
+//                mddlenme.setText("");
+//                lstnme.setText("");
+//                suffnme.setText("");
+//                b_day.setText("");
+//                cntctnmbr.setText("");
+//                mle.setText("");
+//                fmle.setText("");
+//                usrnme.setText("");
+//                pswrd.setText("");
+//                cnfrmpswrn.setText("");
+//
+//                // we are getting response from our body
+//                // and passing it to our modal class.
+//                DataModal responseFromAPI = response.body();
+//
+//                // on below line we are getting our data from modal class and adding it to our string.
+//                String responseString = "Response Code : " + response.code() + "\nFirst Name : " + responseFromAPI.getFname() + "\n" + "Middle Name : " + responseFromAPI.getMname() + "\n" + "Last Name : " + responseFromAPI.getLname()+ "\n" + "Suffix Name : " + responseFromAPI.getSname() + "\n" + "Birthday : " + responseFromAPI.getBday()+ "\n" + "Contact Number : " + responseFromAPI.getContactnum() + "\n" + "Gender : " + responseFromAPI.getMale()+ "\n" + responseFromAPI.getFemale() + "\n" + "User Name : " + responseFromAPI.getUsername()+ "\n" + "Password: " + responseFromAPI.getPassword() + "\n" + "Confirm Password : " + responseFromAPI.getConfirmpassw();
+//
+//                // below line we are setting our
+//                // string to our text view.
+////                responseTV.setText(responseString);
+//            }
+//
 //            @Override
 //            public void onFailure(Call<DataModal> call, Throwable t) {
-//                // setting text to our text view when
-//                // we get error response from API.
 //
-//                Toast.makeText(getApplicationContext(), "Error found ! " , Toast.LENGTH_SHORT).show();
-//                responseTV.setText("Error found is : " + t.getMessage());
 //            }
-        });
+//
+////            @Override
+////            public void onFailure(Call<DataModal> call, Throwable t) {
+////                // setting text to our text view when
+////                // we get error response from API.
+////
+////                Toast.makeText(getApplicationContext(), "Error found ! " , Toast.LENGTH_SHORT).show();
+////                responseTV.setText("Error found is : " + t.getMessage());
+////            }
+//        });
 
 
 
     }
-}
