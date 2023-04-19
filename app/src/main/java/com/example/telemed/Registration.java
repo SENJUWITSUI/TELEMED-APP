@@ -3,6 +3,7 @@ package com.example.telemed;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -25,15 +26,44 @@ import java.util.Calendar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.POST;
+
 public class Registration extends AppCompatActivity {
 
-    private EditText bday;
+    private EditText firstnme, mddlenme,lstnme,suffnme,b_day,cntctnmbr,usrnme,pswrd,cnfrmpswrn;
+    private Dialog myDialog;
 
-    //    RadioButton male, female;
+     private RadioButton mle,fmle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+
+        // initializing our views
+        firstnme = findViewById(R.id.fname);
+        mddlenme = findViewById(R.id.mname);
+        lstnme = findViewById(R.id.lname);
+        suffnme = findViewById(R.id.sname);
+        b_day = findViewById(R.id.bday);
+        cntctnmbr = findViewById(R.id.contactnum);
+        mle = findViewById(R.id.male);
+        fmle = findViewById(R.id.female);
+        usrnme = findViewById(R.id.username);
+        pswrd = findViewById(R.id.password);
+        cnfrmpswrn = findViewById(R.id.confirmpassw);
+
+
+
+
+
+
         //show , hide password
         ImageView imageViewshowHidepass = findViewById(R.id.imgshow);
         imageViewshowHidepass.setImageResource(R.drawable.off);
@@ -52,7 +82,6 @@ public class Registration extends AppCompatActivity {
                 }
             }
         });
-
         //show , hide password on confirm
         ImageView imageViewshowHidepass1 = findViewById(R.id.imghide);
         imageViewshowHidepass1.setImageResource(R.drawable.off);
@@ -71,6 +100,8 @@ public class Registration extends AppCompatActivity {
                 }
             }
         });
+
+
 //
         TextView textv;
 //
@@ -232,6 +263,118 @@ public class Registration extends AppCompatActivity {
             }
         });
 
+        myDialog = new Dialog(this);
+        Button popupBTN = (Button) findViewById(R.id.popupBTN);
+        popupBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.setContentView(R.layout.activity_dialog);
+                Button myDialogButton = myDialog.findViewById(R.id.register);
+                Button myDialog1Button = myDialog.findViewById(R.id.loginbtn);
+
+                myDialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Registration.this, Registration.class);
+                        startActivity(intent);
+
+                    }
+                });
+
+                myDialog1Button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Registration.this, Login.class);
+                        startActivity(intent);
+
+
+                    }
+                });
+
+
+                myDialog.show();
+            }
+        });
     }
 
+
+
+    private void postData(String fname, String mname, String lname, String sname, String bday, String contactnum, String male, String female, String username, String password, String confirmpassw) {
+
+        // below line is for displaying our progress bar.
+//        loadingPB.setVisibility(View.VISIBLE);
+
+        // on below line we are creating a retrofit
+        // builder and passing our base url
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://192.168.82.157.8080/api/")
+                // as we are sending data in json format so
+                // we have to add Gson converter factory
+                .addConverterFactory(GsonConverterFactory.create())
+                // at last we are building our retrofit builder.
+                .build();
+        // below line is to create an instance for our retrofit api class.
+        RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+
+        // passing data from our text fields to our modal class.
+        DataModal modal = new DataModal(fname, mname, lname, sname, bday, contactnum, male, female, username, password, confirmpassw);
+
+        // calling a method to create a post and passing our modal class.
+        Call<DataModal> call = retrofitAPI.createPost(modal);
+
+        // on below line we are executing our method.
+        call.enqueue(new Callback<DataModal>() {
+            @Override
+            public void onResponse(Call<DataModal> call, Response<DataModal> response) {
+                // this method is called when we get response from our api.
+                Toast.makeText(Registration.this, "Data added to API", Toast.LENGTH_SHORT).show();
+
+                // below line is for hiding our progress bar.
+//                loadingPB.setVisibility(View.GONE);
+
+                // on below line we are setting empty text
+                // to our both edit text.
+
+                firstnme.setText("");
+                mddlenme.setText("");
+                lstnme.setText("");
+                suffnme.setText("");
+                b_day.setText("");
+                cntctnmbr.setText("");
+                mle.setText("");
+                fmle.setText("");
+                usrnme.setText("");
+                pswrd.setText("");
+                cnfrmpswrn.setText("");
+
+                // we are getting response from our body
+                // and passing it to our modal class.
+                DataModal responseFromAPI = response.body();
+
+                // on below line we are getting our data from modal class and adding it to our string.
+                String responseString = "Response Code : " + response.code() + "\nFirst Name : " + responseFromAPI.getFname() + "\n" + "Middle Name : " + responseFromAPI.getMname() + "\n" + "Last Name : " + responseFromAPI.getLname()+ "\n" + "Suffix Name : " + responseFromAPI.getSname() + "\n" + "Birthday : " + responseFromAPI.getBday()+ "\n" + "Contact Number : " + responseFromAPI.getContactnum() + "\n" + "Gender : " + responseFromAPI.getMale()+ "\n" + responseFromAPI.getFemale() + "\n" + "User Name : " + responseFromAPI.getUsername()+ "\n" + "Password: " + responseFromAPI.getPassword() + "\n" + "Confirm Password : " + responseFromAPI.getConfirmpassw();
+
+                // below line we are setting our
+                // string to our text view.
+//                responseTV.setText(responseString);
+            }
+
+            @Override
+            public void onFailure(Call<DataModal> call, Throwable t) {
+
+            }
+
+//            @Override
+//            public void onFailure(Call<DataModal> call, Throwable t) {
+//                // setting text to our text view when
+//                // we get error response from API.
+//
+//                Toast.makeText(getApplicationContext(), "Error found ! " , Toast.LENGTH_SHORT).show();
+//                responseTV.setText("Error found is : " + t.getMessage());
+//            }
+        });
+
+
+
+    }
 }

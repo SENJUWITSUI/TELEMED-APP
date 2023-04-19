@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="600dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    tools:context=".fragments.Add_User">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/appbaradd"
+        android:fitsSystemWindows="true"
+        android:theme="@style/Theme.Design"
+        android:background="#fff" >
+
+        <TextView
+            android:id="@+id/crateuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="10dp"
+            android:text="CREATE NEW USER"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/firstname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="195dp"
+                android:text="FIRST NAME"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ask1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-193dp"
+                android:layout_marginTop="80dp"
+                android:layout_toEndOf="@+id/firstname"
+                android:text="*"
+                android:textColor="@color/red" />
+
+
+            <EditText
+                android:id="@+id/fname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/firstname"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/middlename"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fname"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="195dp"
+                android:text="MIDDLE NAME"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <EditText
+                android:id="@+id/mname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/middlename"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/lname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mname"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="-25dp"
+                android:text="LAST NAME"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/lasname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/lname"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/ask2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mname"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="-25dp"
+                android:layout_toEndOf="@+id/lname"
+                android:text="*"
+                android:textColor="@color/red" />
+
+            <TextView
+                android:id="@+id/suffix"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lasname"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="-25dp"
+                android:text="SUFFIX"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+            <EditText
+                android:id="@+id/Sufname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/suffix"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/sexrdbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="SEX"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_below="@+id/Sufname"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="-25dp"/>
+
+
+            <RadioGroup
+                android:id="@+id/rdgrp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sexrdbtn"
+                android:layout_marginTop="5dp">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="1dp"
+                    android:checked="false"
+                    android:text="MALE"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:checked="false"
+                    android:text="FEMALE"
+                    android:textColor="#000"
+                    android:textSize="20sp" />
+
+            </RadioGroup>
+            <TextView
+                android:id="@+id/select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sexrdbtn"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="90dp"
+                android:text="select user type"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/select"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:hint="Select User Type"
+                android:inputType="textAutoComplete" />
+
+            <TextView
+                android:id="@+id/uname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dropdown"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="10dp"
+                android:text="USER NAME"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ask3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sexrdbtn"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="180dp"
+                android:layout_toEndOf="@+id/uname"
+                android:text="*"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/usname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/uname"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/Email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usname"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="-21dp"
+                android:text="email"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/Emailedttxt"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/Email"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/pwrd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Emailedttxt"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="-10dp"
+                android:text="password"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ask5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Emailedttxt"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="-10dp"
+                android:layout_toEndOf="@+id/pwrd"
+                android:text="*"
+                android:textColor="@color/red" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/pwrd"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp" />
+
+            <ImageView
+                android:id="@+id/show"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/pwrd"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="-110dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="63dp"
+                android:layout_toEndOf="@+id/password"
+                />
+
+
+            <TextView
+                android:id="@+id/numbr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="21dp"
+                android:layout_marginTop="-10dp"
+                android:text="mobile no."
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/ask6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/password"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="-10dp"
+                android:layout_toEndOf="@+id/numbr"
+                android:text="*"
+                android:textColor="@color/red" />
+
+
+            <EditText
+                android:id="@+id/Mobile"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/numbr"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="28dp"
+                android:background="@drawable/edittetxt"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"/>
+
+
+            <Button
+                android:id="@+id/submitbtn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/Mobile"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/Closebtn"
+                android:backgroundTint="#003473"
+                android:text="SUBMIT"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/Closebtn"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_below="@id/Mobile"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#fff"
+                android:text="CLOSE"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+
+
+
+
