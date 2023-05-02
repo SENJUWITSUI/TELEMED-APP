@@ -12,6 +12,13 @@ public interface InterfaceAPI {
         Call<LoginResponse> checklogin(
                 @Field("email") String email,
                 @Field("password") String password);
+
+
+
+//        @POST("login")
+//        Call<String> login (@Header("Authorization") String authToken);
+//@POST("login")
+//Call<LoginResponse> checklogin(@Query("Email") String email, @Query("password") String password);
 }
 
 
