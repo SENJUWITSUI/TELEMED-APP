@@ -13,6 +13,8 @@ public interface InterfaceAPI {
                 @Field("email") String email,
                 @Field("password") String password);
 
+//        @POST("logout")
+//        Call<LogoutResponse> logout();
 
 
 //        @POST("login")

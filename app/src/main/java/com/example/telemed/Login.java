@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ public class Login extends AppCompatActivity {
     private static String API_BASE_URL = "http://10.20.109.200:8080/api/";
     EditText username, passwords;
     Button btnLogin;
+
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +107,16 @@ public class Login extends AppCompatActivity {
         String password = passwords.getText().toString().trim();
         InterfaceAPI interfaceAPI = iniRetrofit().create(InterfaceAPI.class);
 
+//        progressBar.setVisibility(View.VISIBLE); // Show progress bar
+
         Call<LoginResponse> call = interfaceAPI.checklogin(email, password);
         call.enqueue(new Callback<LoginResponse>() {
 
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-
                 if(response.isSuccessful()){
+//                    progressBar.setVisibility(View.GONE);
+
                     Toast.makeText(Login.this,"Login Successful", Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
                     new Handler().postDelayed(new Runnable() {
@@ -128,6 +134,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
+//                progressBar.setVisibility(View.GONE);
                 t.printStackTrace();
 
                 //Response failed

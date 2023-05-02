@@ -96,21 +96,21 @@
         android:paddingLeft="20dp"
         android:textSize="20dp" />
 
-<!--    <ProgressBar-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-
-<!--        android:layout_above="@+id/password"-->
-<!--        android:layout_below="@+id/login"-->
-<!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_marginStart="187dp"-->
-<!--        android:layout_marginTop="226dp"-->
-<!--        android:layout_marginBottom="44dp"-->
-<!--        android:background="@drawable/rounded_corners"-->
-<!--        android:elevation="10dp"-->
-<!--        android:indeterminate="true"-->
-<!--        android:visibility="invisible"/>-->
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_above="@+id/password"
+        android:layout_below="@+id/login"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="187dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/rounded_corners"
+        android:elevation="10dp"
+        android:indeterminate="true"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/pass"
