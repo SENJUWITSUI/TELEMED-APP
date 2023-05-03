@@ -280,6 +280,7 @@ public class Registration extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Registration.this, Login.class);
+//                        Intent intent = new Intent(Registration.this, LogIn1.class);
                         startActivity(intent);
 
 
