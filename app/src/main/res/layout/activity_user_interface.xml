@@ -19,6 +19,20 @@
             tools:layout_editor_absoluteX="-49dp"
             tools:layout_editor_absoluteY="175dp" />
 
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progress_bar"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_marginStart="187dp"-->
+<!--            android:layout_marginTop="200dp"-->
+<!--            android:layout_marginBottom="44dp"-->
+<!--            android:elevation="10dp"-->
+<!--            android:indeterminate="true"-->
+<!--            android:visibility="invisible"-->
+<!--            tools:ignore="MissingConstraints" />-->
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"

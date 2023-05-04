@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -18,18 +19,30 @@ import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class User_Interface extends AppCompatActivity {
 
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     Myviewpager myviewpager;
-
     private Button button;
     TextView txt;
     Dialog dialog;
 
     Spinner spinner;
     String[] data = {"Option 1", "Change Password", "LogOut"};
+
+    private Spinner serbisyo_spinner, hospital_spinner;
+//    private List<Services> ServicesList = new ArrayList<>();
+    private static String API_BASE_URL = "http://10.20.98.230:8080/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +60,7 @@ public class User_Interface extends AppCompatActivity {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+
 
         button = findViewById(R.id.btn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -129,11 +143,9 @@ public class User_Interface extends AppCompatActivity {
                             startActivity(new Intent(User_Interface.this,Login.class));
                             finish();
                         }
-                    },700);
+                    },10);
                     // You can also navigate to a logout screen or clear the user's session data here
-
                 }
-
             }
 
             @Override
@@ -143,22 +155,6 @@ public class User_Interface extends AppCompatActivity {
         });
     }
 
-//
-//    @Override
-//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-////        String selectedOption = adapterView.getItemAtPosition(i).toString();
-//        String selectedItem = data[i];
-//        if (selectedItem.equals("LogOut")) {
-//            // Perform logout action here
-//            Toast.makeText(getApplicationContext(), "Logging out...", Toast.LENGTH_SHORT).show();
-//            // You can also navigate to a logout screen or clear the user's session data here
-//        }
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
     public void openmain() {
     Intent intent = new Intent(this, User_Interface.class);
     startActivity(intent);
@@ -167,4 +163,40 @@ public class User_Interface extends AppCompatActivity {
         Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
+
+//    private Retrofit iniRetrofit() {
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .baseUrl(API_BASE_URL)  //Change server URL
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//        return retrofit;
+//    }
+//        InterfaceAPI interfaceAPI = iniRetrofit().create(InterfaceAPI.class);
+//        String name = getName();
+//        String lname = getLname;
+//        Call<LoginResponse> call = interfaceAPI.checklogin(email, password);
+//        call.enqueue(new Callback<LoginResponse>() {
+//
+//            @Override
+//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//                progressBar.setVisibility(View.GONE);
+//                if(response.isSuccessful()){
+//                   List<SpinnerItem> spinnerItems = response.body();
+//                   ArrayAdapter<SpinnerItem> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, spinnerItems);
+//                   adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                   spinner.setAdapter(adapter);
+//               } else {
+//                   Toast.makeText(MainActivity.this, "Failed to get login names", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+//
+//            @Override
+//            public void onFailure(Call<LoginResponse> call, Throwable t) {
+//                progressBar.setVisibility(View.GONE);
+//                t.printStackTrace();
+//
+//                //Response failed
+//                Log.e("TAG", "Response: " + t.getMessage());            }
+//        });
+//    }
 }

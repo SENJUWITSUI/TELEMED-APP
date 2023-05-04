@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -24,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Login extends AppCompatActivity {
     Dialog myDialog;
     TextView create;
-    private static String API_BASE_URL = "http://10.20.109.200:8080/api/";
+    private static String API_BASE_URL = "http://10.20.98.230:8080/api/";
     EditText username, passwords;
     Button btnLogin;
 
@@ -38,6 +39,8 @@ public class Login extends AppCompatActivity {
         username = findViewById(R.id.username);
         passwords = findViewById(R.id.password);
         btnLogin = findViewById(R.id.loginbtn);
+        progressBar = findViewById(R.id.progress_bar);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,23 +110,31 @@ public class Login extends AppCompatActivity {
         String password = passwords.getText().toString().trim();
         InterfaceAPI interfaceAPI = iniRetrofit().create(InterfaceAPI.class);
 
-//        progressBar.setVisibility(View.VISIBLE); // Show progress bar
+        progressBar.setVisibility(View.VISIBLE); // Show progress bar
 
         Call<LoginResponse> call = interfaceAPI.checklogin(email, password);
         call.enqueue(new Callback<LoginResponse>() {
 
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                progressBar.setVisibility(View.GONE);
                 if(response.isSuccessful()){
-//                    progressBar.setVisibility(View.GONE);
-
                     Toast.makeText(Login.this,"Login Successful", Toast.LENGTH_LONG).show();
                     LoginResponse loginResponse = response.body();
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             startActivity(new Intent(Login.this,User_Interface.class));
                             finish();
+//                            Dialog dialog = new Dialog(Login.this);
+//                            dialog.setContentView(R.layout.activity_pop_up_window);
+//
+//                            dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                            dialog.setCancelable(false);
+//                            dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
+//                            dialog.show();
+
                         }
                     },700);
 
@@ -134,7 +145,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 t.printStackTrace();
 
                 //Response failed
