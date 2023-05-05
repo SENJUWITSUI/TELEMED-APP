@@ -1,6 +1,7 @@
 package com.example.telemed;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Dialog;
@@ -8,11 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +32,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class User_Interface extends AppCompatActivity {
-    private static String BASE_URL = "http://10.20.101.23:8080/api/";
+    private static String BASE_URL = "http://10.20.96.241:8080/api/";
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     Myviewpager myviewpager;
@@ -38,8 +41,6 @@ public class User_Interface extends AppCompatActivity {
     TextView txt;
     Dialog dialog;
 
-    Spinner spinner;
-    String[] data = {"Option 1", "Change Password", "LogOut"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,39 +119,37 @@ public class User_Interface extends AppCompatActivity {
             }
         });
 
-        spinner = findViewById(R.id.spinner);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(User_Interface.this, android.R.layout.simple_spinner_item, data);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ImageView menuIcon = findViewById(R.id.imageView);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = data[position];
-                if (selectedItem.equals("LogOut")) {
-                    // Perform logout action here
-                    Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(User_Interface.this,Login.class));
-                            finish();
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(User_Interface.this, menuIcon);
+                popupMenu.getMenuInflater().inflate(R.menu.logoutmenu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.changepass:
+                                // Handle option 1 click
+                                return true;
+                            case R.id.logout:
+                                // Handle option 2 click
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        startActivity(new Intent(User_Interface.this,Login.class));
+                                        finish();
+                                    }
+                                },700);
+                                return true;
                         }
-                    },700);
-                    // You can also navigate to a logout screen or clear the user's session data here
-
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                        return false;
+                    }
+                });
+                popupMenu.show();
             }
         });
+
 
 
 //        //CREATE SCHEDULE DIALOG CODE
@@ -213,25 +212,6 @@ public class User_Interface extends AppCompatActivity {
         });
     }
 
-
-
-
-//
-//    @Override
-//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-////        String selectedOption = adapterView.getItemAtPosition(i).toString();
-//        String selectedItem = data[i];
-//        if (selectedItem.equals("LogOut")) {
-//            // Perform logout action here
-//            Toast.makeText(getApplicationContext(), "Logging out...", Toast.LENGTH_SHORT).show();
-//            // You can also navigate to a logout screen or clear the user's session data here
-//        }
-//    }
-//
-//    @Override
-//    public void onNothingSelected(AdapterView<?> adapterView) {
-//
-//    }
     public void openmain() {
     Intent intent = new Intent(this, User_Interface.class);
     startActivity(intent);

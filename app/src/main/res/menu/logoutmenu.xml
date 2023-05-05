@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Change Password"
+        android:id="@+id/changepass"
+        android:icon="@drawable/change"/>
+
+    <item
+        android:title="LogOut"
+        android:id="@+id/logout"
+        android:icon="@drawable/baseline_logout_24"
+        android:iconTint="#000000"
+        />
+
+</menu>

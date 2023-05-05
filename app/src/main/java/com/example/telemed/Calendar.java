@@ -4,23 +4,25 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 public class Calendar extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private Button button;
     TextView txt;
     Dialog dialog;
-    Spinner spinner;
-    String[] data = {"Option 1", "Change Password", "LogOut"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,40 +68,70 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                 dialog.dismiss();
             }
         });
-
-        spinner = findViewById(R.id.spinner);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(Calendar.this, android.R.layout.simple_spinner_item, data);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        Spinner spinner = findViewById(R.id.spinner);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ImageView menuIcon = findViewById(R.id.imageView);
+        menuIcon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItem = data[position];
-                if (selectedItem.equals("LogOut")) {
-                    // Perform logout action here
-                    Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            startActivity(new Intent(Calendar.this,Login.class));
-                            finish();
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(Calendar.this, menuIcon);
+                popupMenu.getMenuInflater().inflate(R.menu.logoutmenu, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.changepass:
+                                // Handle option 1 click
+                                return true;
+                            case R.id.logout:
+                                // Handle option 2 click
+                                Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        startActivity(new Intent(Calendar.this,Login.class));
+                                        finish();
+                                    }
+                                },700);
+                                return true;
                         }
-                    },700);
-                    // You can also navigate to a logout screen or clear the user's session data here
-
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+                        return false;
+                    }
+                });
+                popupMenu.show();
             }
         });
+//        spinner = findViewById(R.id.spinner);
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(Calendar.this, android.R.layout.simple_spinner_item, data);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//        Spinner spinner = findViewById(R.id.spinner);
+//        spinner.setAdapter(adapter);
+//
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                String selectedItem = data[position];
+//                if (selectedItem.equals("LogOut")) {
+//                    // Perform logout action here
+//                    Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            startActivity(new Intent(Calendar.this,Login.class));
+//                            finish();
+//                        }
+//                    },700);
+//                    // You can also navigate to a logout screen or clear the user's session data here
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
     }
 
     @Override

@@ -25,7 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Login extends AppCompatActivity {
     Dialog myDialog;
     TextView create;
-    private static String API_BASE_URL = "http://10.20.101.23:8080/api/";
+    private static String API_BASE_URL = "http://10.20.96.241:8080/api/";
     EditText username, passwords;
     Button btnLogin;
 
