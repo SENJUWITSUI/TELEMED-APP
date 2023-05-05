@@ -29,20 +29,17 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class User_Interface extends AppCompatActivity {
-
+    private static String BASE_URL = "http://10.20.101.23:8080/api/";
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     Myviewpager myviewpager;
+
     private Button button;
     TextView txt;
     Dialog dialog;
 
     Spinner spinner;
     String[] data = {"Option 1", "Change Password", "LogOut"};
-
-    private Spinner serbisyo_spinner, hospital_spinner;
-//    private List<Services> ServicesList = new ArrayList<>();
-    private static String API_BASE_URL = "http://10.20.98.230:8080/api/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +57,6 @@ public class User_Interface extends AppCompatActivity {
         dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.setCancelable(false);
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
-
 
         button = findViewById(R.id.btn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -143,9 +139,11 @@ public class User_Interface extends AppCompatActivity {
                             startActivity(new Intent(User_Interface.this,Login.class));
                             finish();
                         }
-                    },10);
+                    },700);
                     // You can also navigate to a logout screen or clear the user's session data here
+
                 }
+
             }
 
             @Override
@@ -153,8 +151,87 @@ public class User_Interface extends AppCompatActivity {
 
             }
         });
+
+
+//        //CREATE SCHEDULE DIALOG CODE
+            //Populate Service Spinner
+        Spinner service_spinner = dialog.findViewById(R.id.spin1);
+        Spinner hospitals_spinner = dialog.findViewById(R.id.spinn);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<List<Post>> call = jsonPlaceHolderApi.listRepos();
+        Call<List<Post>> call2 = jsonPlaceHolderApi.listRepos2();
+        call.enqueue(new Callback<List<Post>>(){
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response){
+                List<Post> posts = response.body();
+
+                List<String> spinnerItems = new ArrayList<>();
+                for(Post post : posts){
+                    spinnerItems.add(post.getServiceName());
+                }
+                ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(User_Interface.this,
+                        android.R.layout.simple_spinner_item, spinnerItems);
+                spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                service_spinner.setAdapter(spinnerAdapter);
+
+            }
+            @Override
+            public void onFailure(Call<List<Post>> call,  Throwable t){
+                Log.d("TAG", "onFailure: " + t.getMessage());
+
+            }
+        });
+
+        call2.enqueue(new Callback<List<Post>>(){
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response){
+                List<Post> posts = response.body();
+
+                //Hospital Spinner
+                List<String> spinnerItems2 = new ArrayList<>();
+                for(Post post : posts){
+                    spinnerItems2.add(post.getHospitalName());
+                }
+                ArrayAdapter<String> spinnerAdapter2 = new ArrayAdapter<>(User_Interface.this,
+                        android.R.layout.simple_spinner_item, spinnerItems2);
+                spinnerAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                hospitals_spinner.setAdapter(spinnerAdapter2);
+
+            }
+            @Override
+            public void onFailure(Call<List<Post>> call2,  Throwable t){
+                Log.d("TAG", "onFailure: " + t.getMessage());
+
+            }
+        });
     }
 
+
+
+
+//
+//    @Override
+//    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+////        String selectedOption = adapterView.getItemAtPosition(i).toString();
+//        String selectedItem = data[i];
+//        if (selectedItem.equals("LogOut")) {
+//            // Perform logout action here
+//            Toast.makeText(getApplicationContext(), "Logging out...", Toast.LENGTH_SHORT).show();
+//            // You can also navigate to a logout screen or clear the user's session data here
+//        }
+//    }
+//
+//    @Override
+//    public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//    }
     public void openmain() {
     Intent intent = new Intent(this, User_Interface.class);
     startActivity(intent);
@@ -163,40 +240,4 @@ public class User_Interface extends AppCompatActivity {
         Intent intent = new Intent(this, Calendar.class);
         startActivity(intent);
     }
-
-//    private Retrofit iniRetrofit() {
-//        Retrofit retrofit = new Retrofit.Builder()
-//                .baseUrl(API_BASE_URL)  //Change server URL
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .build();
-//        return retrofit;
-//    }
-//        InterfaceAPI interfaceAPI = iniRetrofit().create(InterfaceAPI.class);
-//        String name = getName();
-//        String lname = getLname;
-//        Call<LoginResponse> call = interfaceAPI.checklogin(email, password);
-//        call.enqueue(new Callback<LoginResponse>() {
-//
-//            @Override
-//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-//                progressBar.setVisibility(View.GONE);
-//                if(response.isSuccessful()){
-//                   List<SpinnerItem> spinnerItems = response.body();
-//                   ArrayAdapter<SpinnerItem> adapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_spinner_item, spinnerItems);
-//                   adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//                   spinner.setAdapter(adapter);
-//               } else {
-//                   Toast.makeText(MainActivity.this, "Failed to get login names", Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//            @Override
-//            public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                progressBar.setVisibility(View.GONE);
-//                t.printStackTrace();
-//
-//                //Response failed
-//                Log.e("TAG", "Response: " + t.getMessage());            }
-//        });
-//    }
 }

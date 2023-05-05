@@ -16,7 +16,8 @@ public interface InterfaceAPI {
                 @Field("username") String email,
                 @Field("password") String password);
 
-
+        @GET("services")
+        Call<List<Services>> getServices();
 }
 
 
