@@ -17,40 +17,17 @@
         android:background="#fff" >
 
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/header"
-                android:layout_width="153dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="20dp"
-                android:scaleType="centerCrop"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/telemed_logo"
-                app:layout_collapseMode="parallax" />
-
-
-            <Button
-                android:id="@+id/popupBTN"
-                android:layout_width="26dp"
-                android:layout_height="25dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="382dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="100dp"
-                android:background="@drawable/br"
-                android:paddingLeft="18dp"
-                android:paddingRight="18dp" />
-
-        </RelativeLayout>
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="153dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/telemed_logo"
+            app:layout_anchor="@+id/appbar"
+            app:layout_collapseMode="parallax" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

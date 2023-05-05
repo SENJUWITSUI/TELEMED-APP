@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openloginActivity();
-
-
 
             }
         });
@@ -144,4 +138,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
 }
