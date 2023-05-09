@@ -2,6 +2,7 @@ package com.example.telemed;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.Dialog;
@@ -151,11 +152,11 @@ public class User_Interface extends AppCompatActivity {
         });
 
 
-
 //        //CREATE SCHEDULE DIALOG CODE
             //Populate Service Spinner
         Spinner service_spinner = dialog.findViewById(R.id.spin1);
         Spinner hospitals_spinner = dialog.findViewById(R.id.spinn);
+//        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -163,10 +164,13 @@ public class User_Interface extends AppCompatActivity {
                 .build();
 
         JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-
-        Call<List<Post>> call = jsonPlaceHolderApi.listRepos();
-        Call<List<Post>> call2 = jsonPlaceHolderApi.listRepos2();
-        call.enqueue(new Callback<List<Post>>(){
+//        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//
+//            @Override
+//            public void onRefresh() {
+                Call<List<Post>> call = jsonPlaceHolderApi.listRepos();
+                Call<List<Post>> call2 = jsonPlaceHolderApi.listRepos2();
+                call.enqueue(new Callback<List<Post>>(){
             @Override
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response){
                 List<Post> posts = response.body();
@@ -211,6 +215,8 @@ public class User_Interface extends AppCompatActivity {
             }
         });
     }
+//        });
+//    }
 
     public void openmain() {
     Intent intent = new Intent(this, User_Interface.class);

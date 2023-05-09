@@ -95,12 +95,12 @@ public class Calendar extends AppCompatActivity implements AdapterView.OnItemSel
                                 return true;
                             case R.id.logout:
                                 // Handle option 2 click
+                                finish();
                                 Toast.makeText(getApplicationContext(), "Logout Successfully", Toast.LENGTH_SHORT).show();
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         startActivity(new Intent(Calendar.this,Login.class));
-                                        finish();
                                     }
                                 },700);
                                 return true;

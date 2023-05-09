@@ -16,9 +16,6 @@
         android:theme="@style/Theme.Design"
         android:background="#fff" >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/header"
@@ -32,25 +29,20 @@
             app:layout_anchor="@+id/appbar"
             app:layout_collapseMode="parallax" />
 
-            <Button
-                android:id="@+id/popupBTN"
-                android:layout_width="26dp"
-                android:layout_height="25dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginStart="100dp"
-                android:layout_marginLeft="382dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="13dp"
-                android:layout_marginBottom="100dp"
-                android:background="@drawable/br"
-                android:paddingLeft="18dp"
-                android:paddingRight="18dp" />
 
-        </RelativeLayout>
-
+        <Button
+            android:id="@+id/popupBTN"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="300dp"
+            android:layout_marginLeft="372dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginEnd="9dp"
+            android:background="@drawable/br"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -699,9 +691,18 @@
                 android:layout_marginStart="-110dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="63dp"
-                android:layout_toEndOf="@+id/confirmpassw"/>
+                android:layout_toEndOf="@+id/confirmpassw"
+                android:textSize="15sp" />
 
 
+            <ProgressBar
+                android:id="@+id/LoadingPB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="150dp"
+                android:layout_below="@+id/confirmpassw"
+                android:visibility="gone" />
             <Button
                 android:id="@+id/submitbtn"
                 android:layout_width="194dp"
