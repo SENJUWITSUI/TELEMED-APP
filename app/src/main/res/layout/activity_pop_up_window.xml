@@ -95,9 +95,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="40dp"
             android:background="@drawable/spinner"
-            android:autofillHints="Pumili ng Serbisyo"
             android:minHeight="48dp" />
-
         <Spinner
             android:id="@+id/spinn"
             android:layout_width="296dp"

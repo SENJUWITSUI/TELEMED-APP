@@ -3,6 +3,7 @@ package com.example.telemed;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
@@ -259,6 +260,7 @@ public class Registration extends AppCompatActivity {
         });
 
         myDialog = new Dialog(this);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
         Button popupBTN = (Button) findViewById(R.id.popupBTN);
         popupBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -279,7 +281,7 @@ public class Registration extends AppCompatActivity {
                 myDialog1Button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(Registration.this, Login.class);
+                        Intent intent = new Intent(Registration.this, Login .class);
 //                        Intent intent = new Intent(Registration.this, LogIn1.class);
                         startActivity(intent);
 
