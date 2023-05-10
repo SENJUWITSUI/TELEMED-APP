@@ -10,7 +10,7 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:id="@+id/appbar"
         android:fitsSystemWindows="true"
         android:theme="@style/Theme.Design"
@@ -22,7 +22,7 @@
             android:layout_width="153dp"
             android:layout_height="40dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
             android:layout_gravity="center_vertical"
             android:src="@drawable/telemed_logo"
@@ -34,15 +34,9 @@
             android:id="@+id/popupBTN"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="300dp"
-            android:layout_marginLeft="372dp"
-            android:layout_marginTop="-20dp"
-            android:layout_marginEnd="9dp"
-            android:background="@drawable/br"
-            android:paddingLeft="18dp"
-            android:paddingRight="18dp" />
+            android:layout_marginLeft="320dp"
+            android:layout_marginTop="-35dp"
+            android:background="@drawable/br"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -66,7 +60,6 @@
                 android:layout_marginLeft="130dp"
                 android:layout_marginTop="43dp"
                 android:layout_marginEnd="43dp"
-                android:layout_marginBottom="43dp"
                 android:text="REGISTER"
                 android:textAlignment="center"
                 android:textColor="#003473"
@@ -82,7 +75,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="80dp"
                 android:layout_marginLeft="130dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:text="Already have an Account?"
                 android:textColor="#003473"
                 android:textSize="20sp" />
@@ -94,9 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/register"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="0dp"
                 android:layout_marginLeft="130dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="38dp"
                 android:layout_toEndOf="@+id/already"
                 android:text="Yes"
