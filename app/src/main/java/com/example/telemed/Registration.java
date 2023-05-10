@@ -55,7 +55,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Registration extends AppCompatActivity {
-    String url= "http://10.20.107.32:8080/api/";
+    String url= "http://10.20.107.159:8080/api/";
     //        private EditText firstnme, mddlenme,lstnme,suffnme,b_day,cntctnmbr,usrnme,pswrd,cnfrmpswrn;
 //        private Dialog myDialog;
     private EditText username, first_name, middle_name, last_name, suffix, password, birth_date, mobile;

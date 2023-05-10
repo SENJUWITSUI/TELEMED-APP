@@ -33,7 +33,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class User_Interface extends AppCompatActivity {
-    private static String BASE_URL = "http://10.20.107.32:8080/api/";
+    private static String BASE_URL = "http://10.20.107.159:8080/api/";
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     Myviewpager myviewpager;
