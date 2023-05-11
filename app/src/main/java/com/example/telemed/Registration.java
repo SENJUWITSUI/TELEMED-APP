@@ -63,13 +63,11 @@ public class Registration extends AppCompatActivity {
     private ProgressBar Loading;
     private RadioGroup sex;
     private TextView responsetv;
-    private Dialog myDialog;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_registration);
 
         first_name = findViewById(R.id.fname);
@@ -93,17 +91,17 @@ public class Registration extends AppCompatActivity {
                         && last_name.getText().toString().isEmpty() && suffix.getText().toString().isEmpty()
                         && birth_date.getText().toString().isEmpty() && password.getText().toString().isEmpty()
                         && mobile.getText().toString().isEmpty() && username.getText().toString().isEmpty()) {
-                    Toast.makeText(Registration.this, "Error: Please fill all fields!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registration.this, "Please enter both the values", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (sex.getCheckedRadioButtonId() != 0) {
+                if (sex.getCheckedRadioButtonId() !=0) {
                     String sex = "Female";
                     postData(first_name.getText().toString().trim(), middle_name.getText().toString().trim()
                             , last_name.getText().toString().trim(), suffix.getText().toString().trim(),
                             birth_date.getText().toString().trim(), password.getText().toString().trim(),
                             mobile.getText().toString().trim(), username.getText().toString().trim(), sex);
-                }  else {
+                } else {
                     String sex = "Male";
                     postData(first_name.getText().toString().trim(), middle_name.getText().toString().trim()
                             , last_name.getText().toString().trim(), suffix.getText().toString().trim(),
@@ -273,14 +271,14 @@ public class Registration extends AppCompatActivity {
         });
 
 
-            textv=(TextView)findViewById(R.id.yes);
-            textv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(Registration.this, Login.class));
-                    //  Toast.makeText(getApplicationContext(), "You Click Me :)) ", Toast.LENGTH_SHORT).show();
-                }
-            });
+//            textv=(TextView)findViewById(R.id.yes);
+//            textv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    startActivity(new Intent(Registration.this, Login.class));
+//                    //  Toast.makeText(getApplicationContext(), "You Click Me :)) ", Toast.LENGTH_SHORT).show();
+//                }
+//            });
 
         coor=findViewById(R.id.scroll);
         floatingactionbtn = findViewById(R.id.floatingbtn);
@@ -375,38 +373,38 @@ public class Registration extends AppCompatActivity {
 //                }
 //            });
 
-            myDialog = new Dialog(this);
-            Button popupBTN = (Button) findViewById(R.id.popupBTN);
-            popupBTN.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    myDialog.setContentView(R.layout.activity_dialog);
-                    Button myDialogButton = myDialog.findViewById(R.id.register);
-                    Button myDialog1Button = myDialog.findViewById(R.id.loginbtn);
-
-                    myDialogButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(Registration.this, Registration.class);
-                            startActivity(intent);
-
-                        }
-                    });
-
-                    myDialog1Button.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent intent = new Intent(Registration.this, Login.class);
-                            startActivity(intent);
-
-
-                        }
-                    });
-
-
-                    myDialog.show();
-                }
-            });
+//            myDialog = new Dialog(this);
+//            Button popupBTN = (Button) findViewById(R.id.popupBTN);
+//            popupBTN.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    myDialog.setContentView(R.layout.activity_dialog);
+//                    Button myDialogButton = myDialog.findViewById(R.id.register);
+//                    Button myDialog1Button = myDialog.findViewById(R.id.loginbtn);
+//
+//                    myDialogButton.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            Intent intent = new Intent(Registration.this, Registration.class);
+//                            startActivity(intent);
+//
+//                        }
+//                    });
+//
+//                    myDialog1Button.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            Intent intent = new Intent(Registration.this, Login.class);
+//                            startActivity(intent);
+//
+//
+//                        }
+//                    });
+//
+//
+//                    myDialog.show();
+//                }
+//            });
     }
 
 }
