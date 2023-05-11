@@ -95,7 +95,7 @@ public class Registration extends AppCompatActivity {
                     return;
                 }
 
-                if (sex.getCheckedRadioButtonId() == '1') {
+                if (sex.getCheckedRadioButtonId() !=0) {
                     String sex = "Female";
                     postData(first_name.getText().toString().trim(), middle_name.getText().toString().trim()
                             , last_name.getText().toString().trim(), suffix.getText().toString().trim(),
